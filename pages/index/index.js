@@ -1,10 +1,11 @@
 //index.js
+
+var common = require('../../common/common.js')
+
 //获取应用实例
 const app = getApp()
 
 Page({
-
-
   //页面初始数据
   data: {
     motto: 'Hello World',
@@ -19,6 +20,9 @@ Page({
     })
   },
 
+  sayHello() {
+    common.sayHello("nihao")
+  },
 
   onLoad: function() {
     if (app.globalData.userInfo) {
@@ -56,12 +60,12 @@ Page({
 
   },
 
-//垂直方向的px
+  //垂直方向的px
   onPageScroll(scrollTop) {
 
   },
-//右上角的转发
-  onShareAppMessage: function () {
+  //右上角的转发
+  onShareAppMessage: function() {
     return {
       title: '自定义转发标题',
       path: '/page/user?id=123'
