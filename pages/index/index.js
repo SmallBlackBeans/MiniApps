@@ -1,5 +1,5 @@
 //index.js
-
+//require 暂时不支持绝对路径
 var common = require('../../common/common.js')
 
 //获取应用实例
@@ -11,13 +11,56 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    objectArray: [
+      { id: 5, unique: 'unique_5' },
+      { id: 4, unique: 'unique_4' },
+      { id: 3, unique: 'unique_3' },
+      { id: 2, unique: 'unique_2' },
+      { id: 1, unique: 'unique_1' },
+      { id: 0, unique: 'unique_0' },
+    ],
+    numberArray: [1, 2, 3, 4]
   },
+
+  takePhoto() {
+    const ctx = wx.createCameraContext()
+    ctx.takePhoto({
+      quality: 'high',
+      success: (res) => {
+        this.setData({
+          src: res.tempImagePath
+        })
+      }
+    })
+  },
+  error(e) {
+    console.log(e.detail)
+  },
+  //random() 方法可返回介于 0 ~ 1 之间的一个随机数
+  switch: function (e) {
+    const length = this.data.objectArray.length
+    for (let i = 0; i < length; ++i) {
+      const x = Math.floor(Math.random() * length)
+      const y = Math.floor(Math.random() * length)
+      const temp = this.data.objectArray[x]
+      this.data.objectArray[x] = this.data.objectArray[y]
+      this.data.objectArray[y] = temp
+    }
+    this.setData({
+      objectArray: this.data.objectArray
+    })
+  },
+
   //事件处理函数 页面中定义的方法绑定
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+
+  onMyevent: function(event) {
+    console.log("子组件触发点击事件")
   },
 
   sayHello() {

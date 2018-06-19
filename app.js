@@ -1,7 +1,13 @@
 //app.js
+var worker = wx.createWorker('workers/request/index.js')
+// 文件名指定 worker 的入口文件路径，绝对路径
+
 App({ //注册小程序
   onShow: function(options) { //启动或者从后台进入前台
     console.log('onShow')
+    worker.postMessage({
+      msg: "hello worker"
+    })
   },
   onError: function(msg) {
     console.log(msg)
@@ -14,6 +20,16 @@ App({ //注册小程序
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    if (wx.openBluetoothAdapter) {
+      wx.openBluetoothAdapter()
+    } else {
+      // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
 
     // 登录
     wx.login({
@@ -44,6 +60,6 @@ App({ //注册小程序
   },
   globalData: {
     userInfo: null,
-    globalInfo:null
+    globalInfo: null
   }
 })

@@ -1,0 +1,12 @@
+/* CustomComponent.wxss */
+
+.inner {
+  color: red;
+}
+
+/*
+默认样式
+*/
+:host {
+  color: yellow;
+}

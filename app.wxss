@@ -1,4 +1,8 @@
 /**app.wxss**/
+@import "common/common.wxss";
+
+/* 类选择器 */
+
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +11,21 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+/* id选择器  */
+
+#firstname {
+  height: 2px;
+}
+
+/* 标签名选择器  */
+
+view {
+}
+
+view::after {
+}
+
+view::before {
+}

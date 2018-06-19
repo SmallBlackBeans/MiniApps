@@ -1,5 +1,61 @@
 <!--index.wxml-->
+<wxs module ='m1'>
+var msg = "hello world";
+module.exports.message = msg;
+</wxs>
+<view>{{m1.message}}</view>
+
+<map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+
+<live-player src="https://domain/pull_stream" mode="RTC" autoplay bindstatechange="statechange" binderror="error" style="width: 300px; height: 225px;" />
+
+<camera device-position="front" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera>
+<button type="primary" bindtap="takePhoto">拍照</button>
+<view>预览</view>
+<image mode="widthFix" src="{{src}}"></image>
+
+<hanxiaocu bind:myevent="onMyevent">
+<view slot="before">这个插入到组件name为before的位置</view>
+<view slot="after">这个插入到组件name为after的位置</view>
+</hanxiaocu>
+
+<wxs src="../../common/common.wxs" module="tools"/>
+<view>{{tools.msg}}</view>
+<view>{{tools.bar(tools.foo)}}</view>
+
+<button bindtap='switch'>switch</button>
+
+<text>Block</text>
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
+
+<text>模板template</text>
+<template name="odd">
+  <view> odd </view>
+</template>
+<template name="even">
+  <view> even </view>
+</template>
+<block wx:for="{{[1, 2, 3, 4, 5]}}">
+    <template is="{{item % 2 == 0 ? 'even' : 'odd'}}"/>
+</block>
+
 <view class="container">
+<text>九九乘法表</text>
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
+<!--大括号和引号之间含有空格  -->
+<view wx:for="{{[1,2,3]}} ">
+  {{item}}
+</view>
+ <view wx:for="{{[0, 1, 2, 3, 4]}}"> {{item}} </view>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
