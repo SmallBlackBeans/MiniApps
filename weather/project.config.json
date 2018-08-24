@@ -11,9 +11,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.1.0",
 	"appid": "wx0e950dc53bb06118",
-	"projectname": "%E9%BB%91%E8%B1%86%E8%8A%BD%E5%84%BF",
+	"projectname": "weather",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
