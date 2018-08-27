@@ -1,0 +1,80 @@
+<!--about.wxml-->
+<view class='content'>
+  <swiper indicator-color='#666666' indicator-active-color='#40a7e7' indicator-dots='true' autoplay='true' circular='true' interval='5000' duration='300' previous-margin='0px' next-margin='0px' style='height: {{swiperHeight}}'>
+    <block wx:for="{{bannerImageList}}" wx:key="{{index}}">
+      <swiper-item>
+        <view class='info' data-indx='{{index}}' catchtap='previewImages'>
+          <image src='{{item}}'></image>
+          <view class='name'>韓小醋天氣之家</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper> 
+
+  <view class='item'>
+    <view class='title'>聯繫我</view>
+    <view class='i' bind:catchtap='copy' data-title='Github' data-content='{{github}}'>
+      <view class='icon'>
+        <image src='/img/github.png'></image>
+      </view>
+      <view class='text'>
+        <view>通過GitHub 反饋</view>
+        <view>{{github}}</view>
+      </view>
+    </view>
+    <view class='i' bind:catchtap='copy' data-title='郵箱' data-content='{{email}}'>
+      <view class='icon'>
+        <image src='/img/email.png'></image>
+      </view>
+      <view class='text'>
+        <view>通過Email 反饋</view>
+        <view>{{email}}</view>
+      </view>
+    </view>
+    <view class='i' bind:catchtap='copy' data-title='QQ' data-content='{{qq}}'>
+      <view class='icon'>
+        <image src='/img/qq.png'></image>
+      </view>
+      <view class='text'>
+        <view>QQ 反饋</view>
+        <view>{{qq}}</view>
+      </view>
+    </view>
+
+    <view class='i'>
+      <view class='icon'>
+        <image src='/img/wechat.png'></image>
+      </view>
+      <view class='text'>
+        <view>微信聯繫</view>
+        <button open-type='contact' class='btn'></button>
+      </view>
+    </view>
+
+    <view class='thanks item'>
+      <view class='title'>鳴謝</view>
+      <view class='i'>
+        <view class='icon'>
+          <image src='/img/location_grey.png'></image>
+        </view>
+        <view class='text'>地理編碼： 百度地圖開發平台</view>
+      </view>
+      <view class='i'>
+        <view class='icon'>
+          <image src='/img/weather.png'></image>
+        </view>
+        <view class='text'>天氣數據來源：百度哈哈</view>
+      </view>
+    </view>
+
+    <view class='attention item'>
+      <view class='title'>注意事項</view>
+      <view class='i'>
+        <view class='text'>看個天氣，注意個屁啊，小心雷劈就行了</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='footer'> 開發者： hanxiaocu</view>
+
+</view>

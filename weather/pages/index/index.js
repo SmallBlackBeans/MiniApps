@@ -1,5 +1,22 @@
 //index.js
+
+/**
+ * 我是韓小醋 跟著別人學小程序
+ * 源碼來自 https://github.com/myvin/quietweather
+ * 一行一行敲一遍
+ */
+
 //获取应用实例
+// pm2.5 浓度对应的指数等级
+// 0-50 优
+// 50-100 良
+// 100-150 轻度污染：对敏感人群不健康
+// 150-200 中度污染：不健康
+// 200-300 重度污染：非常不健康
+// 300-500 严重污染：有毒物
+// 500以上 爆表：有毒物
+let messages = require('../../da')
+let gloabalData = getApp().getG
 const app = getApp()
 
 Page({
@@ -10,11 +27,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+ 
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

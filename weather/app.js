@@ -1,8 +1,8 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         this.globalData.systemInfo = res
         this.globalData.isIphoneX = /iphonex/gi.test(res.model.replace(/\s+/, ''))
       },
