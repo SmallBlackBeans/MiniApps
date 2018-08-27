@@ -15,10 +15,11 @@
 // 200-300 重度污染：非常不健康
 // 300-500 严重污染：有毒物
 // 500以上 爆表：有毒物
-let messages = require('../../da')
-let gloabalData = getApp().getG
-const app = getApp()
-
+let messages = require('../../data/messages.js')
+let gloabalData = getApp().gloabalData
+let bmap = require('../../lib/bmap-wx.js')
+let utils = require('../../utils/util.js')
+let SYSTEMINFO = gloabalData.systemInfo
 Page({
   data: {
     motto: 'Hello World',

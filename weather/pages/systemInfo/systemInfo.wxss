@@ -40,3 +40,17 @@
   height: 62rpx;
   border-top: 1rpx solid #efefef
 }
+
+.systeminfo .item:last-child {
+    border-bottom: none;
+}
+
+.systeminfo .item .key {
+    line-height: 1em;
+}
+
+.systeminfo .item .value {
+    font-size: 24rpx;
+    line-height: 1em;
+    color: #777
+}

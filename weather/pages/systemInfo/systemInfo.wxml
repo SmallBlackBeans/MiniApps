@@ -1,2 +1,11 @@
 <!--pages/systemInfo/systemInfo.wxml-->
-<text>pages/systemInfo/systemInfo.wxml</text>
+<view class='systemInfo'>
+    <view class='brand'>
+        <image src='/img/mobile.png'></image>
+        <text>{{systemInfoObj.brand}}</text>
+    </view>
+    <view class='item' wx:for='{{systemInfoArr}}' wx:key='{{index}}'>
+        <view class='key'>{{item.name}}</view>
+        <view class='value'>{{systemInfoObj[item.key]}}</view>
+    </view>
+</view>
