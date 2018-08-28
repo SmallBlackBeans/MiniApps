@@ -2,6 +2,8 @@
   "files.associations": {
     "*.vue": "vue",
     "*.wxss": "css",
-    "*.wxml": "wxml"
+    "*.wxml": "html",
+    "*.cjson": "jsonc",
+    "*.wxs": "javascript"
   }
 }

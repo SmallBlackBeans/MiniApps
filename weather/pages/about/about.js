@@ -1,5 +1,5 @@
 // about.js
-let utils = require('../../utils/util.js')
+let utils = require('../../utils/utils.js')
 
 Page({
 

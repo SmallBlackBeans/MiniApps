@@ -1,1 +1,5 @@
-{}
+{
+    "navigationBarTitleText": "韓小醋 天氣預報",
+    "enablePullDownRefresh": true,
+    "usingComponents": {}
+}

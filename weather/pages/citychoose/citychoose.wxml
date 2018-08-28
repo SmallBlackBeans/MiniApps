@@ -1,2 +1,32 @@
 <!--pages/citychoose/citychoose.wxml-->
-<text>pages/citychoose/citychoose.wxml</text>
+<view class='container'>
+    <view class='wrapper'>
+        <view class='search'>
+            <view class='inner'>
+                <image src='/img/search_grey.png'></image>
+                <input value='{{inputText}}' placeholder='搜索城市' maxlength='20' confirm-type='搜索' bindinput='inputFilter' bindconfirm='inputFilter' bindfocus='inputFilter'></input>
+            </view>
+            <text class='cancel' catchtap='cancel'>清空</text>
+        </view>
+    </view>
+
+    <!-- <view wx:if='{{hotCities.length}}'>
+        <view class='title'>熱門城市</view>
+        <view class='items'>
+            <view class='item' hover-class='hover-ddd' catchtap='choose' data-item='{{item}}' wx:key='{{index}}' wx:for='{{hotCities}}'>{{item.name}}</view>
+        </view>
+    </view> -->
+
+    <view class='bottom'>
+        <view wx:key='{{index}}' wx:for='{{showItems}}'>
+            <view class='key'>{{index}}</view>
+            <view class='values'>
+                <view wx:key='{{index}}' class='value' hover-class='hover' wx:for='{{item}}' catchtap='choose' data-item='{{item}}'>{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='empty' wx:if='{{!showItems}}'>暫無城市可以選擇</view>
+   
+
+</view>
